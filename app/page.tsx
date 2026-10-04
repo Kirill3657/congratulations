@@ -300,15 +300,13 @@ function PhotoGallery() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 sm:gap-6 md:auto-rows-[180px] md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
           {PHOTOS.map((photo, idx) => (
             <button
               key={idx}
               type="button"
               onClick={() => setSelected(idx)}
-              className={`group relative w-full cursor-pointer overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-pink-100 transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:ring-pink-300 ${
-                idx % 3 === 0 ? "aspect-[3/4] md:row-span-2 md:aspect-auto" : "aspect-square md:aspect-auto"
-              }`}
+              className="group relative aspect-square w-full cursor-pointer overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-pink-100 transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:ring-pink-300"
               style={{
                 animation: `fade-in-up 0.7s cubic-bezier(0.16,1,0.3,1) ${idx * 80}ms both`,
               }}

@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     locale: "ru_RU",
     images: [
       {
-        url: "/favicon.ico",
+        url: "/opengraph-image.png",
         width: 1200,
         height: 630,
         alt: "С Днём Рождения, Викуля!",
@@ -40,10 +40,10 @@ export const metadata: Metadata = {
     title: "С Днём Рождения, Викуля! 🎂",
     description:
       "Тёплое поздравление с 15-летием — моменты дружбы, письма от близких и много любви 💕",
-    images: ["/favicon.ico"],
+    images: ["/opengraph-image.png"],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/opengraph-image.png",
   },
 };
 

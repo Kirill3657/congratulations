@@ -1,26 +1,59 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fff1f7;
+  --foreground: #4a1d3a;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background: linear-gradient(135deg, #fff1f7 0%, #f5e1ff 50%, #ffe1f0 100%);
+  background-attachment: fixed;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+.font-script {
+  font-family: var(--font-great-vibes), cursive;
+}
+
+@keyframes float-up {
+  0%   { transform: translateY(100vh) scale(0.5); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(-100px) scale(1.2); opacity: 0; }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.08); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes confetti-fall {
+  0%   { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+@keyframes gentle-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+@keyframes soft-glow {
+  0%, 100% { box-shadow: 0 10px 30px -10px rgba(236, 72, 153, 0.4); }
+  50%      { box-shadow: 0 20px 45px -10px rgba(168, 85, 247, 0.6); }
 }

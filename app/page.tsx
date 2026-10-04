@@ -278,12 +278,10 @@ function Hero() {
 }
 
 /* ============================================================
-   ГАЛЕРЕЯ
+   ГАЛЕРЕЯ (без лайтбокса — клик ничего не делает)
    ============================================================ */
 
 function PhotoGallery() {
-  const [selected, setSelected] = useState<number | null>(null);
-
   return (
     <section id="gallery" className="relative z-20 scroll-mt-8 px-6 py-28 sm:py-32">
       <div className="mx-auto max-w-6xl">
@@ -302,65 +300,33 @@ function PhotoGallery() {
 
         <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
           {PHOTOS.map((photo, idx) => (
-            <button
+            <div
               key={idx}
-              type="button"
-              onClick={() => setSelected(idx)}
-              className="group relative aspect-square w-full cursor-pointer overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-pink-100 transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-2xl hover:ring-pink-300"
+              className="group relative w-full overflow-hidden rounded-2xl bg-pink-50 shadow-lg ring-1 ring-pink-100 transition-all duration-500 ease-out hover:shadow-2xl hover:ring-pink-300"
               style={{
                 animation: `fade-in-up 0.7s cubic-bezier(0.16,1,0.3,1) ${idx * 80}ms both`,
               }}
             >
+              {/* Распорка: высота = ширине */}
+              <div style={{ paddingBottom: "100%" }} />
+
               <Image
                 src={photo.src}
                 alt={photo.caption}
                 fill
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                unoptimized
+                className="object-cover"
                 sizes="(max-width: 768px) 50vw, 25vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-purple-900/70 via-purple-900/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              <p className="absolute inset-x-0 bottom-0 translate-y-4 p-4 text-left text-xs font-medium text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 sm:text-sm">
+
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-purple-900/70 via-purple-900/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <p className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-4 p-4 text-left text-xs font-medium text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 sm:text-sm">
                 {photo.caption}
               </p>
-            </button>
+            </div>
           ))}
         </div>
       </div>
-
-      {selected !== null && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-purple-950/85 p-4 backdrop-blur-md"
-          style={{ animation: "fade-in 0.3s ease-out both" }}
-          onClick={() => setSelected(null)}
-        >
-          <div
-            className="relative max-h-[90vh] w-full max-w-3xl overflow-hidden rounded-2xl shadow-2xl"
-            style={{ animation: "fade-in-up 0.4s cubic-bezier(0.16,1,0.3,1) both" }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="relative aspect-[3/4] w-full">
-              <Image
-                src={PHOTOS[selected].src}
-                alt={PHOTOS[selected].caption}
-                fill
-                className="object-contain"
-                sizes="90vw"
-              />
-            </div>
-            <p className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-6 text-center text-white">
-              {PHOTOS[selected].caption}
-            </p>
-            <button
-              type="button"
-              onClick={() => setSelected(null)}
-              className="absolute right-4 top-4 flex h-11 w-11 cursor-pointer items-center justify-center rounded-full bg-white/90 text-lg text-purple-700 shadow-lg transition-transform duration-200 hover:scale-110 hover:bg-white"
-              aria-label="Закрыть"
-            >
-              ✕
-            </button>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

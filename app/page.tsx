@@ -28,7 +28,7 @@ type Letter = {
 
 const LETTERS: Letter[] = [
   {
-    from: "Даша",
+    from: "Даши",
     title: "Моей родной душе",
     emoji: "💞",
     color: "from-pink-400 to-rose-400",
@@ -46,7 +46,7 @@ const LETTERS: Letter[] = [
     ],
   },
   {
-    from: "Родные",
+    from: "Родных",
     title: "Наша дорогая, любимая",
     emoji: "🌸",
     color: "from-purple-400 to-fuchsia-400",
@@ -61,7 +61,7 @@ const LETTERS: Letter[] = [
     ],
   },
   {
-    from: "София",
+    from: "Софии",
     title: "Мой человек",
     emoji: "💖",
     color: "from-rose-400 to-pink-500",
@@ -77,7 +77,7 @@ const LETTERS: Letter[] = [
     ],
   },
   {
-    from: "Влада",
+    from: "Влады",
     title: "Любимая Викуся",
     emoji: "🤍",
     color: "from-sky-400 to-purple-400",
@@ -90,7 +90,7 @@ const LETTERS: Letter[] = [
     ],
   },
   {
-    from: "Василиса",
+    from: "Василисы",
     title: "Ты — чудо",
     emoji: "❤️",
     color: "from-amber-400 to-pink-500",
